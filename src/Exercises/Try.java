@@ -1,3 +1,4 @@
+/*
 package Exercises;
 
 public class Try {
@@ -10,3 +11,4 @@ public class Try {
     }
 
 }
+*/

@@ -26,8 +26,8 @@ public class TutorialExc1 {
 }
 
 /*
- * public static boolean main(String[] args){
- *      return ("AEIOUaeiou" = indexOf(message) !=-1)
+ * public static boolean IsVowel(String[] args){
+ *      return "AEIOUaeiou" = indexOf(message) !=-1
  * } 
  * 
  * 
