@@ -21,11 +21,11 @@ public class CarRoadTax {
 
                 if(ccS<=1000)
                 BFees=20.0;
-                else if(ccS>1000 && ccS<1200)
+                else if(ccS>1000 && ccS<=1200)
                 BFees=55.0;
-                else if(ccS>1200 && ccS<1400)
+                else if(ccS>1200 && ccS<=1400)
                 BFees=70.0;
-                else if(ccS>1400 && ccS<1600)
+                else if(ccS>1400 && ccS<=1600)
                 BFees=90.0;
                 else{
                 System.out.print("Invalid engine power for Saloon cars");break;
@@ -39,19 +39,19 @@ public class CarRoadTax {
                 System.out.print("Enter the engine capacity of the car(cc): "); 
                 ccN = input.nextInt();
                 
-                if(ccN>1600 && ccN<1800){
+                if(ccN>1600 && ccN<=1800){
                     BFees=200.0;
                     ProgFees = 0.4*(ccN-1600);
-                }else if(ccN>1800 && ccN<2000){
+                }else if(ccN>1800 && ccN<=2000){
                     BFees=280.0;
                     ProgFees = 0.5*(ccN-1800);
-                }else if(ccN>2000 && ccN<2500){
+                }else if(ccN>2000 && ccN<=2500){
                     BFees=380.0;
                     ProgFees = 1*(ccN-2000);
                 }else if(ccN>2500 && ccN<3000){
                     BFees=800.0;
                     ProgFees = 2.5*(ccN-2500);
-                }if(ccN>=3000){
+                }else if(ccN>=3000){
                     BFees=2130.0;
                     ProgFees = 4.5*(ccN-3000);
                 }else{
