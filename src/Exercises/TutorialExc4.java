@@ -20,5 +20,6 @@ public class TutorialExc4 {
         }while(x!=0);
 
         System.out.println("Total cost of items in the cart: " + Total);
+        input.close();
     }
 }
