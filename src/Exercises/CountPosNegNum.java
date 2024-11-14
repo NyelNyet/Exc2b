@@ -1,4 +1,5 @@
 package Exercises;
+//Danial Harith 2411467
 import java.util.Scanner;
 public class CountPosNegNum {
     public static void main(String[] args){
@@ -23,5 +24,7 @@ public class CountPosNegNum {
         System.out.println("The number of negative integer is : "+neg);
         System.out.println("Total of all integers is : "+total);
         System.out.printf("The average of all numbers is : %.2f",avg);
+
+        input.close();
     }
 }
