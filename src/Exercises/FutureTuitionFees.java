@@ -6,7 +6,7 @@ public class FutureTuitionFees {
         double Fee = 10000;
         int Year = 0;
         do{
-            Fee = Fee + Fee*RATE;
+            Fee += Fee*RATE;
             ++Year;
         }while(Fee<=20000);
 
