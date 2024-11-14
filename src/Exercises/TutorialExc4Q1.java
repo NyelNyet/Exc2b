@@ -2,7 +2,7 @@ package Exercises;
 
 import java.util.Scanner;
 
-public class TutorialExc4 {
+public class TutorialExc4Q1 {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
         final double DISCOUNT = 0.9;
