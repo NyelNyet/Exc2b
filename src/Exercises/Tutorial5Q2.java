@@ -16,7 +16,7 @@ public class Tutorial5Q2 {
     }
 
     public static boolean isPrime(int x){
-        if((x==2 || x==3 || x==5 || x==7) || (x%2!=0 && x%3!=0 && x%5!=0 && x%7!=0)){
+        if(((x==2 || x==3 || x==5 || x==7) || (x%2!=0 && x%3!=0 && x%5!=0 && x%7!=0)) && x!=1){
             return true;
         }else{
             return false;
