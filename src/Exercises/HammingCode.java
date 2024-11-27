@@ -11,8 +11,8 @@ public class HammingCode {
         System.out.println(WSLength);
 
         for(int i=0;i<WSLength;i++){
-            WF[i] = 1;
-            System.out.println(i + " " + WF);
+            WF[i] = (int)(Math.random() * 10)%2;
+            System.out.println(i + " " + WF[i]);
 
             
         }
