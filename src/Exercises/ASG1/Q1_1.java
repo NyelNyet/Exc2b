@@ -41,11 +41,11 @@ public class Q1_1 {
     public static void BinaryOutput(Scanner input){
         System.out.print("Enter the first input: ");
         int firstint = input.nextInt();
-        int tempfirstint = firstint;
+        int tempfirstint;
 
         System.out.print("Enter the second input: ");
         int secondint = input.nextInt();
-        int tempsecondint = secondint;
+        int tempsecondint;
 
         int firstintlength = lengthofint(firstint);
         int secondintlength = lengthofint(secondint);
@@ -55,21 +55,17 @@ public class Q1_1 {
         System.out.print("The longest common prefix is ");
 
         do{
-            tempfirstint /= Math.pow(10,firstintlength-i);
-            tempsecondint /= Math.pow(10,secondintlength-i);
-
-            if(tempfirstint!=tempsecondint){
-                System.out.print(tempfirstint/10);
-                break;
-            }
-
             tempfirstint = firstint;
             tempsecondint = secondint;
 
+            tempfirstint /= Math.pow(10,firstintlength-i);
+            tempsecondint /= Math.pow(10,secondintlength-i);
+
             i++;
 
-        }while(true);
-
+        }while(tempfirstint==tempsecondint);
+        
+        System.out.print(tempfirstint/10);
     }
 
     public static int lengthofint(int origint){
