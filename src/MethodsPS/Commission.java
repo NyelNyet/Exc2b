@@ -1,5 +1,5 @@
 package MethodsPS;
-
+// Danial Harith 2411467
 public class Commission {
     public static void main(String[] args){
         System.out.println("Sales Amount\tCommission");
