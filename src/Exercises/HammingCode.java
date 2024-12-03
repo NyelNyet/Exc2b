@@ -37,6 +37,18 @@ public class HammingCode {
         int parBit = paritychecker(WSLength);
         System.out.println("\n"+parBit);
 
+        int[] ParityBit = new int[parBit];
+
+
+
+
+
+
+        for(i = 1;i<=parBit;i++){
+            System.out.print("C"+ (int)Math.pow(2, i-1) + " ");
+        }
+        
+
 
         input.close();
     }
