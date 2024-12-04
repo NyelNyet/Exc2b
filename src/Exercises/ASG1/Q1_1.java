@@ -4,16 +4,16 @@ public class Q1_1 {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter type of input to check: ");
+        System.out.print("Enter type of input to check(S/I/B): ");
         char typeofinput = input.nextLine().charAt(0);
 
         switch (typeofinput) {
-            case 'S' :  
-            case 's' :  StringOutput(input); break;
             case 'I' :
-            case 'i' :
+            case 'i' :  IntegerOutput(input);break;
+            case 'S' :  
+            case 's' :  
             case 'B' :
-            case 'b' :  BinaryOutput(input);break;
+            case 'b' :  StringOutput(input); break;
         }
     }
 
@@ -38,7 +38,7 @@ public class Q1_1 {
         System.out.print("The longest common prefix is " + firststr.substring(0,check));
     }
 
-    public static void BinaryOutput(Scanner input){
+    public static void IntegerOutput(Scanner input){
         System.out.print("Enter the first input: ");
         int firstint = input.nextInt();
         int tempfirstint;
