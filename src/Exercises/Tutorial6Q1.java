@@ -8,6 +8,8 @@ public class Tutorial6Q1 {
         int unit = input.nextInt();
 
         System.out.println("Total electrivity bill: $"+calculateBill(unit));
+
+        input.close();
     }
 
     public static double calculateBill(int units){

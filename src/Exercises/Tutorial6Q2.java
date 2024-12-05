@@ -14,6 +14,8 @@ public class Tutorial6Q2 {
         }
 
         System.out.printf("The average temperature for the week is: %.2f°C",calculateAverage(temperatures));
+
+        input.close();
     }
 
     public static double calculateAverage(double[] temperatures){

@@ -14,6 +14,8 @@ public class Tutorial6Q3 {
         int time = input.nextInt();
 
         System.out.print("Simple interest: $"+calculateSimpleInterest(principal, rate, time));
+
+        input.close();
     }
 
     public static double calculateSimpleInterest(double principal, double rate, int time){
