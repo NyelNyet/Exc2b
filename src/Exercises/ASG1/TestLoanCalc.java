@@ -1,7 +1,7 @@
 package Exercises.ASG1;
 import java.util.Scanner;
 //Danial Harith 2411467
-public class LoanCalculator {
+public class TestLoanCalc{
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
 
