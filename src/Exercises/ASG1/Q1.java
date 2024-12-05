@@ -1,103 +1,37 @@
 package Exercises.ASG1;
 import java.util.Scanner;
-//Danial Harith 2411467
 public class Q1 {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter type of input to check(S/I/B): ");
+        System.out.print("Enter type of input to check: ");
         char typeofinput = input.nextLine().charAt(0);
 
         switch (typeofinput) {
+            case 'S' :
             case 'I' :
-            case 'i' :  IntegerOutput();break;
-            case 'S' :  
-            case 's' :  
-            case 'B' :
-            case 'b' :  StringOutput(); break;
+            case 'B' : Output(input); break;
         }
-
-        input.close();
     }
 
-    public static void StringOutput(){
-        Scanner input = new Scanner(System.in);
-
+    public static void Output(Scanner input){
+        
         System.out.print("Enter the first input: ");
-        String firststr = input.nextLine();
+        String first = input.nextLine();
 
         System.out.print("Enter the second input: ");
-        String secondstr = input.nextLine();
+        String second = input.nextLine();
 
-        int length1 = firststr.length();
-        int length2 = secondstr.length();
+        int length1 = first.length();
+        int length2 = second.length();
         int check = 0;
 
         for(int i = 0;i<length1 && i<length2;++i){  
-            if(firststr.charAt(i)==secondstr.charAt(i)){
+            if(first.charAt(i)==second.charAt(i)){
                 ++check;
             }
         }
         input.close();
-        System.out.print("The longest common prefix is " + firststr.substring(0,check));
-
-        input.close();
-    }
-
-    public static void IntegerOutput(){
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter the first input: ");
-        int firstint = input.nextInt();
-        int tempfirstint;
-
-        System.out.print("Enter the second input: ");
-        int secondint = input.nextInt();
-        int tempsecondint;
-
-        int firstintlength = lengthofint(firstint);
-        int secondintlength = lengthofint(secondint);
-
-        int i = 1;
-        int j = 1;
-
-        System.out.print("The longest common prefix is ");
-
-        do{
-            tempfirstint = firstint;
-            tempsecondint = secondint;
-
-            tempfirstint /= Math.pow(10,firstintlength-i);
-            tempsecondint /= Math.pow(10,secondintlength-i);
-
-            i++;
-
-            if(firstintlength==secondintlength){
-                j++;
-            }
-
-            if(j==firstintlength){
-                break;
-            }
-
-        }while(tempfirstint==tempsecondint);
-        
-        System.out.print(tempfirstint/10);
-
-        input.close();
-    }
-
-    public static int lengthofint(int origint){
-
-        int lengthfinder = 0;
-
-        while(origint!=0){
-
-            origint /= 10;
-
-            lengthfinder++;
-
-        }
-
-        return lengthfinder;
+        System.out.print("The longest common prefix is " + first.substring(0,check));
     }
 }
