@@ -38,8 +38,13 @@ public class HammingCode {
         System.out.println("\n"+parBit);
 
         int[] ParityBit = new int[parBit];
+        int[] WSWPB = new int[WSLength+parBit];
 
-
+        for(i = 1;i<=(parBit+WSLength);i++){
+            if(i == Math.pow(2, i-1)){
+                WSWPB[i-1] = ParityBit[i-1]; 
+            }
+        }
 
 
 
