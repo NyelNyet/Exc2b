@@ -12,7 +12,7 @@ public class Tutorial6Q1 {
 
     public static double calculateBill(int units){
 
-        if(units>=0 && units<=100){
+        if(units>0 && units<=100){
             return units*0.5;
         }else if(units>100 && units<300){
             return 100*0.5 + (units-100)*0.75;
