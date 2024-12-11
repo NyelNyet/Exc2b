@@ -1,20 +1,20 @@
 package Exercises.HammingCode;
 
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class HammingCode3 {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter Word Stored: ");
+        System.out.print("Enter Word Stored From LSB To MSB: ");
         String tempWS = input.nextLine();
+        input.close();
         int WSLength = tempWS.length();
         int[] WS = new int[WSLength];
         int[] WF = new int[WSLength];
-        int i,j,k,temp;
-        
-
+        int i,j;
 
         // Transfer String input into an int array and print WS
         System.out.println("\nWord Stored");
@@ -24,117 +24,79 @@ public class HammingCode3 {
         }
         System.out.println(Arrays.toString(WS));
 
-
-
-        // Generate error
+        // Generate error and Printing out WF with error
         System.out.println("\nWord Fetched");
-        i = (int)(Math.random()*WSLength);
-        if(WF[i] == 0){
-        WF[i] = 1;}
-        else if(WF[i] == 1){
-        WF[i] = 0;}
-        // Printing out WF with error
-        System.out.println(Arrays.toString(WF));
-
-
+        generateError(WF, WSLength);
 
         int numberOfParityBitRequired = paritychecker(WSLength);
         System.out.println("\nParity/Check bit required: "+numberOfParityBitRequired);
 
-
-
-        int[] ParityBit = new int[numberOfParityBitRequired];
+        int[] WSParityBit = new int[numberOfParityBitRequired];
+        int[] WFParityBit = new int[numberOfParityBitRequired];
         int[] WSHammingCode = new int[WSLength+numberOfParityBitRequired];
         int[] WFHammingCode = new int[WSLength+numberOfParityBitRequired];
         int[][] checkBitBin = new int[(int)Math.pow(2, numberOfParityBitRequired)][numberOfParityBitRequired];
 
-
-
-        // Finding the parity bit position to check into binary
-        for (i = 0; i < checkBitBin.length; i++) {
-            // Convert the integer 'i' to a binary string
-            String binaryStr = String.format("%" + numberOfParityBitRequired + "s", Integer.toBinaryString(i)).replace(' ', '0');
-
-            // Split the binary string into individual characters and store them in the array
-            for (j = 0; j < numberOfParityBitRequired; j++) {
-                checkBitBin[i][j] = Character.getNumericValue(binaryStr.charAt(j));
-            }
-        }
-        
-
+        findBinary(checkBitBin, numberOfParityBitRequired);
 
         for(i = 0;i<numberOfParityBitRequired;i++){
-            ParityBit[numberOfParityBitRequired-i-1] = (int)Math.pow(2, i);
+            WSParityBit[numberOfParityBitRequired-i-1] = (int)Math.pow(2, i);
         }
-    
 
-
-        System.out.print("\nParity/Check Bit ");
-        System.out.println(Arrays.toString(ParityBit));
-
-
+        System.out.print("\nParity/Check Bit \nC ");
+        System.out.println(Arrays.toString(WSParityBit));
+        System.out.println("-------------");
 
         for(j=0;j<checkBitBin.length;j++){
             System.out.println(j+" " +Arrays.toString(checkBitBin[j]));
         }
 
-
-
         System.out.println("\nWord Stored + Check Bit");
-        WSHammingCode = combinebinparity(WS, ParityBit);
+        combinebinparity(WSHammingCode, WS, WSParityBit, Optional.empty());
         System.out.println(Arrays.toString(WSHammingCode));
     
         System.out.println("\nWord Fetched + Check Bit (With Error)");
-        WFHammingCode = combinebinparity(WF, ParityBit);
+        combinebinparity(WFHammingCode, WF, WFParityBit, Optional.empty());
         System.out.println(Arrays.toString(WFHammingCode));
 
-
-
-        for(i = 0;i<ParityBit.length;i++){
-            ParityBit[i] = 0;
+        for(i = 0;i<WSParityBit.length;i++){
+            WSParityBit[i] = 0;
         }
 
         int[][] checkBitDec = new int[numberOfParityBitRequired][WS.length];
-        
-            System.out.println(checkBitBin[0].length);
-            System.out.println(checkBitBin.length);
+        findCheckPosition(checkBitBin, checkBitDec, WSHammingCode);
 
-        for(i = checkBitBin[0].length-1;i >= 0;i--){
-            k = 0;
+        int[][] checkBitFix = new int[checkBitDec.length][];
 
-            for(j = 0;j<checkBitBin.length && k<checkBitDec[i].length;j++){
-                if(checkBitBin[j][i] == 1 && j<=WSHammingCode.length){
-                    
-                    checkBitDec[i][k] = j;
-                    k++;
-                }
-            }
-        }
+        removeZeros(checkBitDec, checkBitFix);
 
-        //int[][] Try = checkBitDec;
-
-        System.out.println(WS.length);
-        System.out.println(checkBitDec[0].length);
-        System.out.println(checkBitDec.length); 
-
-        for(i = 0;i<checkBitDec.length;i++){
-            System.out.print("\nC"+(int)Math.pow(2, numberOfParityBitRequired-1-i)+Arrays.toString(checkBitDec[i]));
+        for(i = 0;i<checkBitFix.length;i++){
+            System.out.print("\nC"+(int)Math.pow(2, numberOfParityBitRequired-1-i)+Arrays.toString(checkBitFix[i]));
             
             System.out.println();
         }
 
+        findParityBit(WSHammingCode, checkBitFix, WSParityBit);
+        findParityBit(WFHammingCode, checkBitFix, WFParityBit);
 
-        System.out.println("\n"+Arrays.toString(ParityBit));
-
+        System.out.println("\nWord Stored + Check Bit");
+        combinebinparity(WSHammingCode, WS, WSParityBit, Optional.of(WSParityBit));
+        System.out.println(Arrays.toString(WSHammingCode));
+    
+        System.out.println("\nWord Fetched + Check Bit (With Error)");
+        combinebinparity(WFHammingCode, WF, WFParityBit, Optional.of(WFParityBit));
+        System.out.println(Arrays.toString(WFHammingCode));
         
+    }
 
-        
+    public static void generateError(int[] array,int length){
+        int i = (int)(Math.random()*length);
+        if(array[i] == 0){
+        array[i] = 1;}
+        else if(array[i] == 1){
+        array[i] = 0;}
 
-
-
-            
-
-        input.close();
+        System.out.println(Arrays.toString(array));
     }
 
     public static int paritychecker(int storedLength){
@@ -148,18 +110,89 @@ public class HammingCode3 {
         return (n > 0) && ((n & (n - 1)) == 0);
     }
 
-    public static int[] combinebinparity(int[] bin, int[] parity){
-        int[] combined = new int[bin.length+parity.length];
-        
+    public static void combinebinparity(int[] combined, int[] bin, int[] parity, Optional<int[]> Opparbit){   
+    if(Opparbit.isPresent()){
+        int[] parbit = Opparbit.get();
+        int k = parbit.length-1;
         for(int i = 0, j=0;i<bin.length+parity.length;i++){
-            if(isPowerOfTwo(i+1)){
-                combined[i] = -1;
-            } else{
-                combined[i] = bin[j];
-                j++;
+                if(isPowerOfTwo(i+1)){
+                    combined[i] = parbit[k];
+                    k--;
+                } else{
+                    combined[i] = bin[j];
+                    j++;
+                }
+            }
+        }else{
+            for(int i = 0, j=0;i<bin.length+parity.length;i++){
+                        if(isPowerOfTwo(i+1)){
+                            combined[i] = -1;
+                        } else{
+                            combined[i] = bin[j];
+                            j++;
+                        } 
             }
         }
-        return combined;
     }
 
+    public static void removeZeros(int[][] array,int[][] outputarray){
+        int i,j;
+        for(i = array.length-1;i>=0;i--){
+            int nonZero = 0,index=0;
+
+            for(j = 0;j<array[i].length;j++){
+                if(array[i][j]!=0){
+                    nonZero++;
+                }
+            }
+            int[] temp = new int[nonZero];
+
+            for(j = 0;j<array[i].length;j++){
+                if(array[i][j]!=0){
+                    temp[index++] = array[i][j];
+                }
+                
+            }
+            outputarray[i] = temp;
+        }
+    }
+
+    public static void findParityBit(int[] allBit, int[][] checker,int[] parBit){
+        for(int i = parBit.length-1;i>=0;i--){
+            for(int j = 0;j<checker[i].length;j++){
+                if(allBit[checker[i][j]-1] == 1){
+                    parBit[i]++;
+                }
+            }
+            parBit[i] %= 2;
+        }
+        System.out.println("\n"+Arrays.toString(parBit));
+    }
+
+    public static void findBinary(int[][] array, int numParBit){
+        // Finding the parity bit position to check into binary
+        for(int i = 0;i<array.length;i++){
+            // Convert the integer 'i' to a binary string
+            String binaryStr = String.format("%" + numParBit + "s", Integer.toBinaryString(i)).replace(' ', '0');
+
+            // Split the binary string into individual characters and store them in the array
+            for(int j = 0;j<numParBit;j++){
+                array[i][j] = Character.getNumericValue(binaryStr.charAt(j));
+            }
+        }
+    }
+
+    public static void findCheckPosition(int[][] input, int[][] output, int[] allBit){
+        for(int i = input[0].length-1;i >= 0;i--){
+            int k = 0;
+
+            for(int j = 0;j<input.length && k<output[i].length;j++){
+                if(input[j][i] == 1 && j<=allBit.length){
+                    
+                    output[i][k] = j;
+                    k++;
+                }
+            }
+        }
+    }
 }
