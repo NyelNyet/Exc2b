@@ -17,12 +17,7 @@ public class HammingCode3 {
         int i,j;
 
         // Transfer String input into an int array and print WS
-        System.out.println("\nWord Stored");
-        for(i=0;i<WSLength;i++){
-            WS[i] = tempWS.charAt(i) - '0';
-            WF[i] = WS[i];
-        }
-        System.out.println(Arrays.toString(WS));
+        stringToInt(tempWS, WS, WF, WSLength);
 
         // Generate error and Printing out WF with error
         System.out.println("\nWord Fetched");
@@ -33,6 +28,7 @@ public class HammingCode3 {
 
         int[] WSParityBit = new int[numberOfParityBitRequired];
         int[] WFParityBit = new int[numberOfParityBitRequired];
+        int[] FinalParityBit = new int[numberOfParityBitRequired];
         int[] WSHammingCode = new int[WSLength+numberOfParityBitRequired];
         int[] WFHammingCode = new int[WSLength+numberOfParityBitRequired];
         int[][] checkBitBin = new int[(int)Math.pow(2, numberOfParityBitRequired)][numberOfParityBitRequired];
@@ -59,9 +55,7 @@ public class HammingCode3 {
         combinebinparity(WFHammingCode, WF, WFParityBit, Optional.empty());
         System.out.println(Arrays.toString(WFHammingCode));
 
-        for(i = 0;i<WSParityBit.length;i++){
-            WSParityBit[i] = 0;
-        }
+        resetParBit(WFParityBit);
 
         int[][] checkBitDec = new int[numberOfParityBitRequired][WS.length];
         findCheckPosition(checkBitBin, checkBitDec, WSHammingCode);
@@ -86,6 +80,12 @@ public class HammingCode3 {
         System.out.println("\nWord Fetched + Check Bit (With Error)");
         combinebinparity(WFHammingCode, WF, WFParityBit, Optional.of(WFParityBit));
         System.out.println(Arrays.toString(WFHammingCode));
+
+        for(i = WSParityBit.length-1;i>=0;i--){
+            FinalParityBit[i] = WSParityBit[i] ^= WFParityBit[i];
+        }
+
+        System.out.println(Arrays.toString(FinalParityBit));
         
     }
 
@@ -124,9 +124,10 @@ public class HammingCode3 {
                 }
             }
         }else{
-            for(int i = 0, j=0;i<bin.length+parity.length;i++){
+            for(int i = 0, j=0, a=0;i<bin.length+parity.length;i++){
                         if(isPowerOfTwo(i+1)){
-                            combined[i] = -1;
+                            combined[i] = -(int)Math.pow(2, a);
+                            a++;
                         } else{
                             combined[i] = bin[j];
                             j++;
@@ -194,5 +195,20 @@ public class HammingCode3 {
                 }
             }
         }
+    }
+
+    public static void resetParBit(int[] array){
+        for(int i = 0;i<array.length;i++){
+            array[i] = 0;
+        }
+    }
+
+    public static void stringToInt(String inpString, int[] array1, int[] array2, int length){
+        System.out.println("\nWord Stored");
+        for(int i=0;i<length;i++){
+            array1[i] = inpString.charAt(i) - '0';
+            array2[i] = array1[i];
+        }
+        System.out.println(Arrays.toString(array1));
     }
 }
