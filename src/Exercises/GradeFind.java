@@ -1,5 +1,5 @@
 package Exercises;
-
+//Danial Harith 2411467
 import java.util.Scanner;
 
 public class GradeFind {
