@@ -1,5 +1,7 @@
 package Exercises.HammingCode;
-
+/**
+ * @author Danial Harith
+ */
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.Scanner;
@@ -55,6 +57,7 @@ public class HammingCode3 {
         combinebinparity(WFHammingCode, WF, WFParityBit, Optional.empty());
         System.out.println(Arrays.toString(WFHammingCode));
 
+        resetParBit(WSParityBit);
         resetParBit(WFParityBit);
 
         int[][] checkBitDec = new int[numberOfParityBitRequired][WS.length];
@@ -70,7 +73,10 @@ public class HammingCode3 {
             System.out.println();
         }
 
+
+        System.out.print("\nWord Stored Parity Bit");
         findParityBit(WSHammingCode, checkBitFix, WSParityBit);
+        System.out.print("\nWord Fetched Parity Bit");
         findParityBit(WFHammingCode, checkBitFix, WFParityBit);
 
         System.out.println("\nWord Stored + Check Bit");
@@ -85,8 +91,11 @@ public class HammingCode3 {
             FinalParityBit[i] = WSParityBit[i] ^= WFParityBit[i];
         }
 
-        System.out.println(Arrays.toString(FinalParityBit));
-        
+        System.out.println("\nFinal Parity Bit : "+Arrays.toString(FinalParityBit));
+
+        StringBuilder FPB = new StringBuilder();
+
+        bitErrPos(FPB, FinalParityBit);
     }
 
     public static void generateError(int[] array,int length){
@@ -210,5 +219,12 @@ public class HammingCode3 {
             array2[i] = array1[i];
         }
         System.out.println(Arrays.toString(array1));
+    }
+
+    public static void bitErrPos(StringBuilder FPB, int[] binFPB){
+        for(int i : binFPB){
+            FPB.append(i);
+        }
+        System.out.println("\nThe error occured in bit postion "+Integer.parseInt(FPB.toString(),2));
     }
 }
