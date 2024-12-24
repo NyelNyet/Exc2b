@@ -10,9 +10,8 @@ public class HammingCode3 {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter Word Stored From LSB To MSB: ");
+        System.out.print("Please Enter Word Stored From LSB To MSB: ");
         String tempWS = input.nextLine();
-        input.close();
         int WSLength = tempWS.length();
         int[] WS = new int[WSLength];
         int[] WF = new int[WSLength];
@@ -41,12 +40,12 @@ public class HammingCode3 {
             WSParityBit[numberOfParityBitRequired-i-1] = (int)Math.pow(2, i);
         }
 
-        System.out.print("\nParity/Check Bit \nC ");
+        System.out.print("\nParity/Check Bit \n\t      C ");
         System.out.println(Arrays.toString(WSParityBit));
-        System.out.println("-------------");
+        System.out.println("-------------------------");
 
         for(j=0;j<checkBitBin.length;j++){
-            System.out.println(j+" " +Arrays.toString(checkBitBin[j]));
+            System.out.println(j+"\t"+(j+1)+"\t" +Arrays.toString(checkBitBin[j]));
         }
 
         System.out.println("\nWord Stored + Check Bit");
