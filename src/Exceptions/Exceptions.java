@@ -16,9 +16,7 @@ public class Exceptions {
         try{
             int result = quotient(n1, n2);
             System.out.println("The result of "+n1+"/"+n2+" is "+result);
-        }
-
-        catch(ArithmeticException ae){
+        }catch(ArithmeticException ae){
             System.out.println("Cannot Divide By Zero");
         }
     }
