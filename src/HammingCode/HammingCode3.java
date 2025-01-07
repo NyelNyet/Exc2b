@@ -1,4 +1,4 @@
-package Exercises.HammingCode;
+package HammingCode;
 /**
  * @author Danial Harith
  */

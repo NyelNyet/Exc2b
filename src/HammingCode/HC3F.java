@@ -1,26 +1,37 @@
-package Exercises.HammingCode;
+package HammingCode;
 /**
- * @author Danial Harith
+ * @author Group3
  */
 import java.util.*;
 
-public class HC3C {
+public class HC3F {
     public static void main(String[] args){
+
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Please Enter Word Stored From LSB To MSB: ");
+        System.out.print("Please Enter Word Stored In Binary From MSB To LSB: ");
         String tempWS = input.nextLine();
-        int WSLength = tempWS.length();
+        int WSLength = tempWS.length()  ;
         int[] WS = new int[WSLength];
         int[] WF = new int[WSLength];
+        boolean aoub = true;
         int i,j;
 
+        System.out.println("Auto generate error or user input?(A/U)");
+        char aou = input.nextLine().toUpperCase().charAt(0);
+        aoub = checkuserinp(aou,aoub);
+
         // Transfer String input into an int array and print WS
-        stringToInt(tempWS, WS, WF, WSLength);
+        stringToInt(tempWS, WS, WF, WSLength,aoub);
 
         // Generate error and Printing out WF with error
-        System.out.println("\nWord Fetched");
-        generateError(WF, WSLength);
+        if(aoub){   
+            System.out.println("\nWord Fetched");
+            generateError(WF, WSLength);
+        }else{
+            System.out.println("\nWord Fetched");
+            System.out.println(Arrays.toString(WF));
+        }
 
         int numberOfParityBitRequired = paritychecker(WSLength);
         System.out.println("\nParity/Check bit required: "+numberOfParityBitRequired);
@@ -40,7 +51,7 @@ public class HC3C {
 
         System.out.print("\nParity/Check Bit \n\t      C ");
         System.out.println(Arrays.toString(WSParityBit));
-        System.out.println("-------------------------");
+        System.out.println();
 
         for(j=0;j<checkBitBin.length;j++){
             System.out.println(j+"\t"+(j+1)+"\t" +Arrays.toString(checkBitBin[j]));
@@ -92,7 +103,7 @@ public class HC3C {
 
         StringBuilder FPB = new StringBuilder();
 
-        bitErrPos(FPB, FinalParityBit);
+        bitErrPos(FPB, FinalParityBit,numberOfParityBitRequired);
     }
 
     public static void generateError(int[] array,int length){
@@ -209,19 +220,77 @@ public class HC3C {
         }
     }
 
-    public static void stringToInt(String inpString, int[] array1, int[] array2, int length){
+    public static void stringToInt(String inpString, int[] array1, int[] array2, int length, boolean check){
+        Scanner input = new Scanner(System.in);
+        int checkinv = 0;
         System.out.println("\nWord Stored");
-        for(int i=0;i<length;i++){
+        if(check){
+            for(int i=0;i<length;i++){
             array1[i] = inpString.charAt(i) - '0';
             array2[i] = array1[i];
+            }
+        }else{
+            for(int i=0;i<length;i++){
+                array1[i] = inpString.charAt(i) - '0';
+                }
+            System.out.print("Please enter word fetched in binary: ");
+            String inpStrings = input.nextLine();
+
+            for(int i = 0;i<inpStrings.length();i++){
+                if(inpStrings.length() > length){
+                    System.out.print("Not the same length as the word stored or invlaid input! Enter again: ");
+                    inpStrings = input.nextLine();
+                    i=0;
+                }else{
+                    array2[i] = inpStrings.charAt(i) - '0';
+                }
+            }
+
+            for(int i = 0;i<array2.length;i++){
+                if(array2[i]!=0 && array2[i]!=1){
+                    checkinv++;
+                }
+            }
+
+            while (inpStrings.length()!=length || checkinv!=0) {
+                checkinv = 0;
+                System.out.print("Not the same length as the word stored or invlaid input! Enter again: ");
+                inpStrings = input.nextLine();
+
+                for(int i = 0;i<inpStrings.length();i++){
+                    array2[i] = inpStrings.charAt(i) - '0';
+                }
+
+                for(int i = 0;i<array2.length;i++){
+                    if(array2[i]!=0 && array2[i]!=1){
+                        checkinv++;
+                    }
+                }
+            }
         }
+        
         System.out.println(Arrays.toString(array1));
     }
 
-    public static void bitErrPos(StringBuilder FPB, int[] binFPB){
+    public static void bitErrPos(StringBuilder FPB, int[] binFPB,int n){
         for(int i : binFPB){
             FPB.append(i);
         }
-        System.out.println("\nThe error occured in bit postion "+Integer.parseInt(FPB.toString(),2));
+
+        if(Integer.parseInt(FPB.toString(),2) == 0){
+            System.out.println("\nNo error occured");
+        }else{
+            System.out.println("\nThe error occured in bit postion "+Integer.parseInt(FPB.toString(),2));
+            System.out.println("The error occured in position "+(Integer.parseInt(FPB.toString(),2)-n)+" in word fetched");
+        }
+    }
+
+    public static boolean checkuserinp(char aou, boolean aoub){
+        if(aou =='U'){
+            aoub = false;
+        }else if(aou == 'A'){
+            aoub = true;
+        }
+        return aoub;
     }
 }
