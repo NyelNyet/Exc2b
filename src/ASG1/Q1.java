@@ -1,4 +1,4 @@
-package Exercises.ASG1;
+package ASG1;
 import java.util.Scanner;
 public class Q1 {
     public static void main(String[] args){

@@ -1,4 +1,4 @@
-package Exercises.MethodShare;
+package MethodShare;
 
 public class TestChar {
     /** Main method */

@@ -1,4 +1,4 @@
-package Exercises.ASG1;
+package ASG1;
 import java.util.Scanner;
 //Danial Harith 2411467
 public class TestLoanCalc{

@@ -1,4 +1,4 @@
-package Exercises.MethodShare;
+package MethodShare;
 
 // RandomCharacter.java: Generate random characters
 public class RandomCharacter {

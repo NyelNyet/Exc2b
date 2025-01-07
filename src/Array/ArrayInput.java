@@ -1,4 +1,4 @@
-package Exercises.Array;
+package Array;
 import java.util.Arrays;
 import java.util.Scanner;
 public class ArrayInput {

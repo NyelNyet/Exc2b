@@ -1,4 +1,4 @@
-package Exercises.ASG1;
+package ASG1;
 //Danial Harith 2411467
 public class LoanCalc {
     public static double mthlyInterest(double loanAmount, double mthlyRate){
