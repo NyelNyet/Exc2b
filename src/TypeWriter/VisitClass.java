@@ -1,5 +1,5 @@
 package TypeWriter;
-
+//Danial Harith 2411467
 import java.io.*;
 import java.util.Scanner;
 
