@@ -8,7 +8,7 @@ public class HammingCode3 {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Please Enter Word Stored From LSB To MSB: ");
+        System.out.print("Please Enter Word Stored From MSB To LSB: ");
         String tempWS = input.nextLine();
         int WSLength = tempWS.length();
         int[] WS = new int[WSLength];

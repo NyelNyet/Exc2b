@@ -223,8 +223,9 @@ public class HC3F {
     public static void stringToInt(String inpString, int[] array1, int[] array2, int length, boolean check){
         Scanner input = new Scanner(System.in);
         int checkinv = 0;
-        System.out.println("\nWord Stored");
+        
         if(check){
+            System.out.println("\nWord Stored");
             for(int i=0;i<length;i++){
             array1[i] = inpString.charAt(i) - '0';
             array2[i] = array1[i];
@@ -268,7 +269,7 @@ public class HC3F {
                 }
             }
         }
-        
+        System.out.println("\nWord Stored");
         System.out.println(Arrays.toString(array1));
     }
 
@@ -280,8 +281,9 @@ public class HC3F {
         if(Integer.parseInt(FPB.toString(),2) == 0){
             System.out.println("\nNo error occured");
         }else{
+            System.out.println("\nError(s) occured.");
             System.out.println("\nThe error occured in bit postion "+Integer.parseInt(FPB.toString(),2));
-            System.out.println("The error occured in position "+(Integer.parseInt(FPB.toString(),2)-n)+" in word fetched");
+            System.out.println("\nThe error occured in position "+(Integer.parseInt(FPB.toString(),2)-n)+" in word fetched");
         }
     }
 
