@@ -1,5 +1,5 @@
 import java.io.*;
-
+//Danial Harith 2411467
 public class Quiz3 {
     public static void main(String[] args) throws IOException{
         double[][] X ={
