@@ -28,14 +28,13 @@ public class tryRead {
 
         while (inps.hasNext()) {
             
-            j = 0;
             String temp = inps.next();
 
             if(temp.equals(cat[i]) && i!=0)
                 current = current + "\n\n";
 
             if(temp.equals(cat[i])){
-
+                
                 current = current.concat(cat[i] + ' ' + total[0][i] + ' ');
                 inps.next();
 
@@ -49,15 +48,19 @@ public class tryRead {
 
             }else{
                 if(temp.equals("Qty:") || temp.equals("Price:")){
+                    
                     current = current.concat('\t'+temp + ' ');
-                    j++;
-                }else{
-                    current = current.concat(temp+' ');
-                }
-            }
+                    current = current+' ';
 
-            if(j!=0){
-                current = current+' ';
+                if(temp.equals("Qty:")) {
+
+                        current = current + inps.next() + '\n';
+                    } else {
+                        current = current + inps.next() + ' ';
+                    }
+                } else {
+                    current = current.concat(temp + ' ');
+                }
             }
         }
 
