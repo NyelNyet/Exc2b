@@ -1,0 +1,31 @@
+Entertainment 100.0 ; total = 24.0
+MOVIE   Price: 1.0	Qty: 1
+TOYS Price: 10.0 Qty: 2
+
+Food&Beverages 123.0 ; total = 37.0
+SNACLS Price: 5.0 Qty: 5
+DRINKS Price: 6.0 Qty: 2
+
+PersonalCare 321.0 ; total = 20.0
+SOAP Price: 5.0 Qty: 2
+SHAMPOO Price: 10.0 Qty: 1
+
+CleaningSupplies 456.0 ; total = 10.0
+DETERGENT Price: 5.0 Qty: 2
+
+Clothings 654.0 ; total = 30.0
+SHIRTS Price: 5.0 Qty: 2
+PANTS Price: 10.0 Qty: 2
+
+Health&Medicines 789.0 ; total = 20.0
+PANADOL Price: 5.0 Qty: 2
+CITRIZINE Price: 5.0 Qty: 2
+
+HouseholdEssentials 987.0 ; total = 20.0
+BROOM Price: 5.0 Qty: 2
+MOP Price: 5.0 Qty: 2
+
+Eletronics&Communications 900.0 ; total = 150.0
+DATA Price: 25.0 Qty: 2
+WIFI Price: 50.0 Qty: 2
+
