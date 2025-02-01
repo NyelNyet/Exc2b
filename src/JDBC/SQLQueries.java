@@ -11,7 +11,7 @@ public class SQLQueries {
 
     public static void main(String[] args){
         final String DB_URL = "jdbc:oracle:thin:@localhost:1521:xe";
-        final String SQL_QUERY = "SELECT * FROM INVOICE";
+        final String SQL_QUERY = "SELECT * FROM stud";
 
         // Use try to connect to and query database
         try{
@@ -25,7 +25,7 @@ public class SQLQueries {
             ResultSetMetaData metaData = resultSet.getMetaData();
             int numberOfColumn = metaData.getColumnCount();
             
-            System.out.println("Invoices of Products: \n\n");
+            // System.out.println("Invoices of Products: \n\n");
 
             // display the names of the columns in the ResultSet
             for(int i = 1;i<=numberOfColumn;i++){
@@ -41,6 +41,7 @@ public class SQLQueries {
                 }
                 System.out.println();
             }
+            connection.close();
         }catch(ClassNotFoundException e){
             e.printStackTrace();
         }catch(SQLException e){
