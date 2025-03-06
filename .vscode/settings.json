@@ -1,6 +1,7 @@
 {
   "java.project.sourcePaths": [
-    "src"
+    "src",
+    "OOP"
   ],
   "java.project.referencedLibraries": [
     "lib/ojdbc17.jar"
