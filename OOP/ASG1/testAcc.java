@@ -1,13 +1,17 @@
 package ASG1;
 
 public class testAcc {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Account mfirst = new Account(1122, 20000);
         mfirst.setAnnualInterestRate(4.5);
 
         mfirst.withdraw(2500);
 
         mfirst.deposit(3000);
+
+        print(mfirst);
+
+        Thread.sleep(5000);
 
         print(mfirst);
 
