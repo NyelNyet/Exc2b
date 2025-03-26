@@ -51,8 +51,8 @@ public class Account {
         this.balance -= withdrawAmount; 
     }
 
-    public void deposit(double depositAmmount){
-        this.balance += depositAmmount;
+    public void deposit(double depositAmount){
+        this.balance += depositAmount;
     }
     
 }
