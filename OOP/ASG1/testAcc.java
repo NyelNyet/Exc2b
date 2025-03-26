@@ -2,10 +2,7 @@ package ASG1;
 
 public class testAcc {
     public static void main(String[] args) {
-        Account mfirst = new Account();
-
-        mfirst.setId(1122);
-        mfirst.setBalance(20000);
+        Account mfirst = new Account(1122, 20000);
         mfirst.setAnnualInterestRate(4.5);
 
         mfirst.withdraw(2500);

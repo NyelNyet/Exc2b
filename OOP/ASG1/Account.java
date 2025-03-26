@@ -9,9 +9,9 @@ public class Account {
     private double annualInterestRate;
     private Date dateCreated = new Date();
 
-    Account(){
-        this.id = 0;
-        this.balance = 0;
+    Account(int id, double balance){
+        this.id = id;
+        this.balance = balance;
         this.annualInterestRate = 0;
     }
 
