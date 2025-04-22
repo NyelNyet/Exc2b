@@ -7,7 +7,7 @@ public class Enemy extends Character implements Attack{
             enemyInfo[0],
             Double.parseDouble(enemyInfo[1]),
             Double.parseDouble(enemyInfo[2]),
-            Double.parseDouble(enemyInfo[3]));
+            Double.parseDouble(enemyInfo[3]));       
     }
 
     private static String getEnemy(){

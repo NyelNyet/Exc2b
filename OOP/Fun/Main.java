@@ -8,7 +8,7 @@ public class Main {
         System.out.println(p1.getName()+" is encountering "+e1.getName()+"!");
         System.out.println(
             "Health: "+e1.getHealth()+
-            "\nPhysical Def: "+e1.getPhysDef()+
+            "\nPhysical Def: "+e1.getPhysAtk()+
             "\nPhycial Atk: "+e1.getPhysDef());
     }
 
