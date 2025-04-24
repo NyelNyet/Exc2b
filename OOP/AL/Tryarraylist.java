@@ -4,11 +4,11 @@ import java.util.*;
 public class Tryarraylist {
     public static void main(String[] args) {
         ArrayList<String> name = new ArrayList<String>();
-        //arrayOne(name);
+        arrayOne(name);
 
         ArrayList<List<Object>> stuff = new ArrayList<>();
 
-        
+        arrayTwo(stuff);
         
     }
 

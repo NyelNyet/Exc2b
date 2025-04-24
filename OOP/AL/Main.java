@@ -19,7 +19,17 @@ public class Main {
         datas.add(new Pair<String,Integer>("Ali", 20));
         datas.add(new Pair<String,Integer>("Abu", 25));
 
-        datas.forEach(x -> System.out.println(x));
+        System.out.println();
+
+        datas.forEach(x -> System.out.println(x.getKey()+" "+x.getValue()));
+
+        System.out.println();
+
+        //
+
+        Pair<String, Pair<String, Integer>> pairData = new Pair<>("Row 1: ", new Pair<>("Ali", 20));
+
+        System.out.println(pairData.getKey()+" "+pairData.getValue().getKey()+" "+pairData.getValue().getValue());
 
 
     }
