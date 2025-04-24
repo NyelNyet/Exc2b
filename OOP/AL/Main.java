@@ -1,7 +1,7 @@
 package AL;
 
 import java.util.*;
-import javafx.Pair;
+import javafx.util.Pair;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,7 +16,11 @@ public class Main {
 
         ArrayList<Pair<String, Integer>> datas = new ArrayList<>();
 
-        
+        datas.add(new Pair<String,Integer>("Ali", 20));
+        datas.add(new Pair<String,Integer>("Abu", 25));
+
+        datas.forEach(x -> System.out.println(x));
+
 
     }
 }
