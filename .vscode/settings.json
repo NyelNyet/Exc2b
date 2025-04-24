@@ -4,6 +4,6 @@
     "OOP"
   ],
   "java.project.referencedLibraries": [
-    "lib/ojdbc17.jar"
+    "lib/*.jar"
   ]
 }
