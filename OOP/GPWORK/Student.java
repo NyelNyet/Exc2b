@@ -13,12 +13,12 @@ public class Student extends User{
     }
 
     @Override
-    public void borrowBook(){
-        System.out.println("Student "+super.getName()+" is borrowing a book!");
+    public void borrowBook(Book book){
+        System.out.println("Student "+super.getName()+" is borrowing a book, "+book.getBookName()+"!");
     }
 
     @Override
-    public void returnBook(){
-        System.out.println("Student "+super.getName()+" is returning a book!");
+    public void returnBook(Book book){
+        System.out.println("Student "+super.getName()+" is returning a book, "+book.getBookName()+"!");
     }
 }

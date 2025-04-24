@@ -2,8 +2,8 @@ package GPWORK;
 
 public class Library{
 
-    public void addBook(){
-        System.out.println("A new book is added into the library!");
+    public void addBook(Book book){
+        System.out.println("A new book, "+book.getBookName()+" is added into the library!");
     }
     
     public void register(User user){} 

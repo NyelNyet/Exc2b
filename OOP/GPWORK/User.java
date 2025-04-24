@@ -23,7 +23,7 @@ public abstract class User implements Notification{
         return this.userEmail;
     }
 
-    public void borrowBook(){}
+    public void borrowBook(Book book){}
 
-    public void returnBook(){}
+    public void returnBook(Book book){}
 }   
