@@ -12,8 +12,12 @@ public class Main {
 
         data.forEach(x -> System.out.println("Name: "+x.getName()+"\tAge:"+x.getAge()));
 
-        //OR
 
+        
+        javaFXPair();// ArrayList<Pair<datatype, datatype>> || Pair<datatype, Pair<datatype, datatype>>
+    }
+
+    public static void javaFXPair(){
         ArrayList<Pair<String, Integer>> datas = new ArrayList<>();
 
         datas.add(new Pair<String,Integer>("Ali", 20));
@@ -30,7 +34,5 @@ public class Main {
         Pair<String, Pair<String, Integer>> pairData = new Pair<>("Row 1: ", new Pair<>("Ali", 20));
 
         System.out.println(pairData.getKey()+" "+pairData.getValue().getKey()+" "+pairData.getValue().getValue());
-
-
     }
 }
