@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
 public class IM {
-    private static ArrayList<Interactable> interactableList = new ArrayList<>();
+    private static ArrayList<Interactible> interactableList = new ArrayList<>();
 
     public IM(String interName,String interID,String status){
-        interactableList.add(new Interactable(interName, interID));
+        interactableList.add(new Interactible(interName, interID, status));
     }
 
-    public ArrayList<Interactable> getInteractableList() {
+    public ArrayList<Interactible> getInteractableList() {
         return interactableList;
     }
 
@@ -16,7 +16,7 @@ public class IM {
     }
 
     public static void getAllDetail(){
-        for(Interactable i : interactableList){
+        for(Interactible i : interactableList){
             System.out.println(i.getSpecs());
         }
     }

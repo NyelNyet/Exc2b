@@ -2,6 +2,7 @@
   "java.project.sourcePaths": [
     "src",
     "OOP",
+    "ALtest",
     "OOPGP"
   ],
   "java.project.referencedLibraries": [
