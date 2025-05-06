@@ -70,7 +70,6 @@ public class OOP_6_MAY {
     public static List<String> getStudName(){
         Scanner input = new Scanner(System.in);
         ArrayList<String> students = new ArrayList<>();
-        int sentinel = -1;
         String name;
 
         while(true){
