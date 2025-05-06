@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "GreetingApp",
+            "request": "launch",
+            "mainClass": "GreetingApp",
+            "projectName": "Exc2b_1582846b"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
