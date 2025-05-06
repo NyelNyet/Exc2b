@@ -2,7 +2,8 @@
   "java.project.sourcePaths": [
     "src",
     "OOP",
-    "OOPGP"
+    "OOPGP",
+    "JAVAFX"
   ],
   "java.project.referencedLibraries": [
     "lib/*.jar"

@@ -22,7 +22,7 @@ public class OOP_6_MAY {
 
             writer.close();
         }catch(IOException ioe){
-            System.out.println("An error has occured!");
+            ioe.printStackTrace();
         }finally{
             try{
                 BufferedReader reader = new BufferedReader(new FileReader(f));
@@ -35,7 +35,7 @@ public class OOP_6_MAY {
             }catch(FileNotFoundException fnfe){
                 System.out.println("File Not Found With The Name Of: "+f.getName());
             }catch(IOException ioe){
-                System.out.println("An error has occured!");
+                ioe.printStackTrace();
             }
         } 
     }
