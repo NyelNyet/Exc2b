@@ -1,6 +1,6 @@
 package Library;
 
-public class Book {
+public class Book{
     protected String isbn;
     protected String title;
     protected String author;
@@ -36,6 +36,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "ISBN:" + isbn + " | Title: " + title + " | Author: " + author + " | Availability: " + (isAvailable?"Available":"Not Available");
     }
 }

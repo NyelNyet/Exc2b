@@ -34,7 +34,7 @@ public class Library {
     //display available book
     public void displayAvailableBook(){
         System.out.println("\nAVAILABLE BOOK");
-        getAvailableBook().forEach(x -> System.out.println(x));
+        getAvailableBook().forEach(x -> System.out.println(x.toString()));
     }
 
     //display user

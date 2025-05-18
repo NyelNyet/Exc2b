@@ -1,23 +1,21 @@
 import java.util.ArrayList;
 
 public class AsnafManager {
-    private static ArrayList<Asnaf> asnafList = new ArrayList<>();
+    private static ArrayList<Asnaf> asnafList;
 
-    public AsnafManager(String asnafName,String asnafID){
-        asnafList.add(new Asnaf(asnafName,asnafID));
+    public AsnafManager(){
+        asnafList = new ArrayList<>();
     }
 
-    public static ArrayList<Asnaf> getAsnafList() {
+    public void addAsnaf(Asnaf asnaf){
+        asnafList.add(asnaf);
+    }
+
+    public ArrayList<Asnaf> getAsnafList() {
         return asnafList;
     }
 
-    public static void getAllAsnafDetail(){
-        for(Asnaf al : asnafList){
-            System.out.println(al.getDetail());
-        }
-    }
-
-    public void getDetail(){
-        System.out.println();
+    public void getAllAsnafDetail(){
+        asnafList.forEach(x -> System.out.println(x.toString()));
     }
 }
