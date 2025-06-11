@@ -2,7 +2,8 @@
   "java.project.sourcePaths": [
     "src",
     "OOPGP",
-    "OOP"
+    "OOP",
+    "Discrete"
   ],
   "java.project.referencedLibraries": [
     "lib/*.jar"
